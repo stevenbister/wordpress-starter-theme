@@ -1,0 +1,22 @@
+/**
+ * Box
+ *
+ * Simple container for grouping content within a defined region
+ *
+ * @var --box-padding[1rem] - padding around the box contents
+ * @var --box-border-size[0] - The width of the (solid) border. If empty or 0, the transparent outline is instated for high contrast mode
+ * @link https://every-layout.dev/layouts/box/
+ */
+
+%box {
+  padding: var(--box-padding, 1rem);
+  border: var(--box-border-size, 0) solid;
+}
+
+.box {
+  @extend %box;
+}
+
+.box * {
+  color: inherit;
+}

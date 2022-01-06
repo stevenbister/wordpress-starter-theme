@@ -1,0 +1,17 @@
+@use "sass:math";
+
+/// Calculates rem based on the number of pixels passed assuming the body text is 16px.
+///
+/// @example
+///   font-size: rem-calc(16);
+///
+/// @param {number} $size
+///   The pixel size to be converted.
+/// @return {number} $remSize
+///   The calculated size in rem units.
+
+@function rem($size) {
+  $remSize: math.div($size, 16);
+
+  @return #{$remSize}rem;
+}

@@ -1,0 +1,14 @@
+/**
+ * Stack
+ * This variation of the everylayout Stack element generates vertical spacing by adding a top margin to the next element.
+ *
+ * @link https://every-layout.dev/layouts/stack/
+ */
+
+%stack > * + * {
+  margin-top: var(--stack-space, 1em);
+}
+
+.stack {
+  @extend %stack;
+}
