@@ -30,7 +30,7 @@
       <p><?= $card_excerpt; ?></p>
 
       <a class="button" href="<?= $card_permalink; ?>">
-        <?= __('Read more', 'lzlabs'); ?>
+        <?= __( 'Read more', 'underscores' ); ?>
       </a>
     </div>
 

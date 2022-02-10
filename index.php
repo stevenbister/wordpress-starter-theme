@@ -23,7 +23,7 @@ get_header();
 
 		<?php if ( have_posts() ) : ?>
 
-    <ul class="grid container" style="--grid-cols: 3;" role="list">
+    <ul class="grid container" style="--grid-cols: 3;" role="list" data-element="load-more-container">
       <?php
         while ( have_posts() ) : the_post();
           /*
@@ -42,12 +42,12 @@ get_header();
 
     <!-- TODO: Include js load more posts -->
     <?php
-      echo '<p class="post-count">Displaying 1 - <span data-element="post-count">' . $wp_query->post_count . '</span> of <span data-element="post-total">' . wp_count_posts( 'post', 'readable')->publish . '</span></p>';
+      echo '<div class="flex justify-center"><p class="post-count">Displaying 1 - <span data-element="post-count">' . $wp_query->post_count . '</span> of <span data-element="post-total">' . wp_count_posts( 'post', 'readable')->publish . '</span></p></div>';
 
       $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 
       if ( $paged != $wp_query->max_num_pages ) {
-        echo '<div><button class="button" data-element="load-more-button">Show More</button></div>';
+        echo '<div class="flex justify-center"><button class="button" data-element="load-more-button">Show More</button></div>';
       }
     ?>
 
@@ -55,9 +55,9 @@ get_header();
       <?php underscores_page_navi(); ?>
     </noscript>
 
-    <!-- <div class="spinner-container" data-element="spinner">
+    <div class="spinner-container" data-element="spinner">
       <div class="spinner"><div></div><div></div><div></div><div></div></div>
-    </div> -->
+    </div>
 
     <?php
     else :

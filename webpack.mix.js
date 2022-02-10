@@ -23,7 +23,9 @@ require('dotenv').config();
 mix.setPublicPath(path.normalize('dist/')); // Set path to store our manifest file
 mix.disableSuccessNotifications();
 
-mix.js('assets/js/src/scripts.js', 'dist/js');
+mix
+  .js('assets/js/src/scripts.js', 'dist/js')
+  .js('assets/js/src/blog-scripts.js', 'dist/js');
 
 mix.sass('assets/scss/style.scss', 'dist/css').options({
   processCssUrls: false,

@@ -45,6 +45,19 @@ function underscores_scripts() {
 
 	wp_enqueue_script( 'underscores-scripts', underscores_dist_path( '/js/scripts.js' ), array(), _S_VERSION, true );
 
+  if ( is_home() ) {
+    wp_enqueue_script( 'underscores-blog-scripts', underscores_dist_path( '/js/blog-scripts.js' ), array(), _S_VERSION, true );
+
+    // Localise scripts for rest api based load more posts button
+    wp_localize_script( 'underscores-blog-scripts', 'UNDERSCORES_BLOG_SCRIPT_PARAMS', array(
+      'resturl'       => rest_url(),
+      'rest_base'     => 'posts',
+      'restNonce'     => wp_create_nonce( 'wp_rest' ),
+      'per_page'      => get_option( 'posts_per_page' ),
+      'total_posts'   => wp_count_posts( 'post', 'readable' )->publish,
+    ) );
+  }
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
