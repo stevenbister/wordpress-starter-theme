@@ -43,7 +43,7 @@ for (let file of files) {
 
 // Move pre-optimised files & libraries over to dist
 mix.copyDirectory('assets/fonts', 'dist/fonts');
-mix.copyDirectory('assets/js/libraries/**', 'dist/js/libraries');
+mix.copyDirectory('assets/js/lib/**', 'dist/js/lib');
 
 /*
  |--------------------------------------------------------------------------
