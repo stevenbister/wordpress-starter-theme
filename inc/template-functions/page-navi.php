@@ -12,7 +12,9 @@ if ( ! function_exists( 'underscores_page_navi' ) ) :
 
     $paginate_links = paginate_links( array(
       'mid_size' => 2, // How many numbers to either side of the current pages.
-      'prev_next' => false, // Show previous / next links
+      'prev_next' => true, // Show previous / next links
+      'prev_text' => 'Previous',
+      'next_text' => 'Next',
       'type'  => 'array',
     ) );
 
