@@ -76,12 +76,12 @@ add_action( 'widgets_init', 'underscores_widgets_init' );
 require get_template_directory() . '/inc/enqueue-assets.php';
 
 /**
- * Custom template tags for this theme.
+ * unctions which enhance the theme by hooking into WordPress
  */
-require get_template_directory() . '/inc/template-tags.php';
+require get_template_directory() . '/inc/template-hooks.php';
 
 /**
- * Functions which enhance the theme by hooking into WordPress.
+ * Custom template tags for this theme
  */
 require get_template_directory() . '/inc/template-functions.php';
 

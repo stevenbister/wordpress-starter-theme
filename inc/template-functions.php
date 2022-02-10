@@ -1,24 +1,15 @@
 <?php
 /**
- * Functions which enhance the theme by hooking into WordPress
+ * Custom template tags for this theme
  *
  * @package underscores
  */
 
 defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 
-/**
- * Adds custom classes to the array of body classes.
- *
- * @param array $classes Classes for the body element.
- * @return array
- */
-function underscores_body_classes( $classes ) {
-	// Adds a class of no-sidebar when there is no sidebar present.
-	// if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-	// 	$classes[] = 'no-sidebar';
-	// }
-
-	return $classes;
-}
-add_filter( 'body_class', 'underscores_body_classes' );
+require get_template_directory() . '/inc/template-functions/posted-on.php';
+require get_template_directory() . '/inc/template-functions/posted-by.php';
+require get_template_directory() . '/inc/template-functions/heading.php';
+require get_template_directory() . '/inc/template-functions/acf-link.php';
+require get_template_directory() . '/inc/template-functions/custom-logo.php';
+require get_template_directory() . '/inc/template-functions/page-navi.php';
