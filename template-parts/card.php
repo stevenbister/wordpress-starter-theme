@@ -29,7 +29,7 @@
 
       <p><?= $card_excerpt; ?></p>
 
-      <a class="button" href="<?php echo $card_permalink; ?>">
+      <a class="button" href="<?= $card_permalink; ?>">
         <?= __('Read more', 'lzlabs'); ?>
       </a>
     </div>

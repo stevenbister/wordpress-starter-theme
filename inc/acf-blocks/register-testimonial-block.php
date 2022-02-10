@@ -56,21 +56,21 @@ function underscores_render_testimonial( $block, $content = '', $is_preview = fa
 	$text_color = get_field( 'text_color' );
 	?>
 
-	<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
+	<div id="<?= esc_attr($id); ?>" class="<?= esc_attr($className); ?>">
 		<blockquote class="testimonial-blockquote">
-			<span class="testimonial-text"><?php echo $text; ?></span>
-			<span class="testimonial-author"><?php echo $author; ?></span>
-			<span class="testimonial-role"><?php echo $role; ?></span>
+			<span class="testimonial-text"><?= $text; ?></span>
+			<span class="testimonial-author"><?= $author; ?></span>
+			<span class="testimonial-role"><?= $role; ?></span>
 		</blockquote>
 
 	    <div class="testimonial-image">
-		    <?php echo wp_get_attachment_image( $image, 'full' ); ?>
+		    <?= wp_get_attachment_image( $image, 'full' ); ?>
 	    </div>
 
 	    <style type="text/css">
-	    	#<?php echo $id; ?> {
-				background: <?php echo $background_color; ?>;
-				color: <?php echo $text_color; ?>;
+	    	#<?= $id; ?> {
+				background: <?= $background_color; ?>;
+				color: <?= $text_color; ?>;
 			}
 	    </style>
 	</div>

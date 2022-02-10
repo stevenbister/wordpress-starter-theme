@@ -17,8 +17,8 @@
   </nav>
 
   <div class="site-info">
-    <p>&copy; <?php bloginfo( 'name' ); ?> <?php echo esc_html( date( 'Y' ) ); ?></p>
-    <p><a href="https://www.blinkseo.co.uk"><?php echo esc_html( _e( 'Blink SEO', '_blink' ) ); ?></a></p>
+    <p>&copy; <?php bloginfo( 'name' ); ?> <?= esc_html( date( 'Y' ) ); ?></p>
+    <p><a href="https://www.blinkseo.co.uk"><?= esc_html( _e( 'Blink SEO', '_blink' ) ); ?></a></p>
   </div><!-- .site-info -->
 </footer>
 <?php wp_footer(); ?>
