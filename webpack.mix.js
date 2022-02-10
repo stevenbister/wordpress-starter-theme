@@ -11,6 +11,7 @@
 const mix = require('laravel-mix');
 const path = require('path');
 const tailwindcss = require('tailwindcss');
+const fs = require('fs');
 
 require('dotenv').config();
 
@@ -19,16 +20,30 @@ require('dotenv').config();
  | General
  |--------------------------------------------------------------------------
  */
-mix.setPublicPath(path.normalize('dist/')) // Set path to store our manifest file
+mix.setPublicPath(path.normalize('dist/')); // Set path to store our manifest file
 mix.disableSuccessNotifications();
 
-mix.js('assets/js/scripts.js', 'dist/js');
+mix.js('assets/js/src/scripts.js', 'dist/js');
 
-mix.sass('assets/scss/style.scss', 'dist/css')
-    .options({
-      processCssUrls: false,
-      postCss: [ tailwindcss('./tailwind.config.js') ],
-    });
+mix.sass('assets/scss/style.scss', 'dist/css').options({
+  processCssUrls: false,
+  postCss: [tailwindcss('./tailwind.config.js')],
+});
+
+// Custom block css -- we're loading these seperately from our main stylesheet
+// to help reduce file size when the block isn't loaded
+const files = fs.readdirSync(
+  path.resolve(__dirname, 'assets', 'scss', 'components', 'blocks'),
+  'utf-8',
+);
+
+for (let file of files) {
+  mix.sass(`assets/scss/components/blocks/${file}`, 'dist/css');
+}
+
+// Move pre-optimised files & libraries over to dist
+mix.copyDirectory('assets/fonts', 'dist/fonts');
+mix.copyDirectory('assets/js/libraries/**', 'dist/js/libraries');
 
 /*
  |--------------------------------------------------------------------------
@@ -36,8 +51,9 @@ mix.sass('assets/scss/style.scss', 'dist/css')
  |--------------------------------------------------------------------------
  */
 if (!mix.inProduction()) {
-  mix.sourceMaps()
-    .webpackConfig({devtool: 'inline-source-map'})
+  mix
+    .sourceMaps()
+    .webpackConfig({ devtool: 'inline-source-map' })
     .browserSync({
       proxy: process.env.PROXY_URL || '',
       https: {
@@ -47,7 +63,7 @@ if (!mix.inProduction()) {
       open: false,
       ui: false,
       files: ['./**/*.php', './dist/**/*'],
-    })
+    });
 }
 
 /*
@@ -56,5 +72,5 @@ if (!mix.inProduction()) {
  |--------------------------------------------------------------------------
  */
 if (mix.inProduction()) {
-  mix.version()
+  mix.version();
 }

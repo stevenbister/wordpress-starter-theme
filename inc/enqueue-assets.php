@@ -36,6 +36,10 @@ if ( ! function_exists( 'underscores_dist_path' ) ) {
 }
 
 function underscores_scripts() {
+  // Libraries
+	wp_enqueue_script( 'underscores-fontfaceobserver', underscores_dist_path( '/js/lib/fontfaceobserver.js' ), array(), _S_VERSION, false );
+
+  // Custom
 	wp_enqueue_style( 'underscores-style', underscores_dist_path( '/css/style.css' ), array(), _S_VERSION );
 	wp_style_add_data( 'underscores-style', 'rtl', 'replace' );
 
