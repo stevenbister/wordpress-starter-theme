@@ -11,13 +11,25 @@
 
 ?>
 <!doctype html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> class="no-js">
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
+
+  <script>
+    // When fonts are loaded change the class so fonts are applied
+    let fontObservers = [
+      new FontFaceObserver(''),
+    ];
+
+    Promise.all(fontObservers).then(() => document.documentElement.classList.add('fonts-loaded'));
+
+    // Set js enabled class if js is running in browser
+    document.documentElement.classList.replace("no-js", "js");
+  </script>
 </head>
 
 <body <?php body_class(); ?>>
