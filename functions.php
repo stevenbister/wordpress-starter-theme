@@ -23,14 +23,14 @@ if ( ! defined( '_S_VERSION' ) ) {
  * Ensure compatible version of PHP is used
  */
 if ( version_compare('7.4', phpversion(), '>=') ) {
-  $error( __('You must be using PHP 7.4 or greater.', 'underscores'), __('Invalid PHP version', 'underscores') );
+  underscores_error( __('You must be using PHP 7.4 or greater.', 'underscores'), __('Invalid PHP version', 'underscores') );
 }
 
 /**
 * Ensure compatible version of WordPress is used
 */
 if ( version_compare('5.0.0', get_bloginfo('version'), '>=') ) {
-  $error( __( 'You must be using WordPress 5.0.0 or greater.', 'underscores' ), __( 'Invalid WordPress version', 'underscores' ) );
+  underscores_error( __( 'You must be using WordPress 5.0.0 or greater.', 'underscores' ), __( 'Invalid WordPress version', 'underscores' ) );
 }
 
 /**

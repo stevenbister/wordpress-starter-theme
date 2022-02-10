@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
  * @param string $subtitle
  * @param string $title
  */
-$error = function ( $message, $subtitle = '', $title = '' ) {
+function underscores_error( $message, $subtitle = '', $title = '' ) {
   $title = $title ?: __('Error', 'underscores');
   $footer = '';
   $message = "<h1>{$title}<br><small>{$subtitle}</small></h1><p>{$message}</p><p>{$footer}</p>";
