@@ -19,7 +19,7 @@ if ( ! function_exists( 'underscores_heading' ) ) :
     }
 
     if ( empty( $heading ) || $heading !== '' && ! is_string( $heading ) ) {
-      $heading = get_the_title();
+      $heading = is_home() ? get_the_title( get_option( 'page_for_posts' ) ) : get_the_title();
     }
 
     echo "<h1 class='entry-title'>{$heading}</h1>";
