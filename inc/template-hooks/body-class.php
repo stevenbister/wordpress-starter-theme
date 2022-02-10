@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 
-if ( ! function_exists( 'underscores_acf_link' ) ) :
+if ( ! function_exists( 'underscores_body_classes' ) ) :
 /**
  * Adds custom classes to the array of body classes.
  *
