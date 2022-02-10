@@ -13,3 +13,4 @@ require get_template_directory() . '/inc/template-functions/heading.php';
 require get_template_directory() . '/inc/template-functions/acf-link.php';
 require get_template_directory() . '/inc/template-functions/custom-logo.php';
 require get_template_directory() . '/inc/template-functions/page-navi.php';
+require get_template_directory() . '/inc/template-functions/post-id.php';
