@@ -149,19 +149,20 @@ if ( ! function_exists( 'underscores_setup' ) ) :
 		add_filter( 'script_loader_src', 'lzlabs_remove_version_scripts_styles', 9999 );
 
     /**
-     * Adds type="module" to the our scripts tag
+     * Set the length of our exceprts
      */
-    function add_type_attribute($tag, $handle, $src) {
-      // if not our script, do nothing and return original $tag
-      if ( 'underscores-scripts' !== $handle ) {
-          return $tag;
-      }
-
-      // change the script tag by adding type="module" and return it.
-      $tag = '<script type="module" src="' . esc_url( $src ) . '"></script>';
-      return $tag;
+    function underscores_custom_excerpt_length( $length ) {
+      return 22;
     }
-    add_filter('script_loader_tag', 'add_type_attribute' , 10, 3);
-	}
+    add_filter( 'excerpt_length', 'underscores_custom_excerpt_length', 999 );
+
+    /**
+     * Change the excerpt more string
+     */
+    function underscores_excerpt_more( $more ) {
+      return '&hellip;';
+    }
+    add_filter( 'excerpt_more', 'underscores_excerpt_more' );
+  }
 endif;
 add_action( 'after_setup_theme', 'underscores_setup' );
