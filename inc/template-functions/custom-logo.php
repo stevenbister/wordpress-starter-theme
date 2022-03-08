@@ -9,7 +9,7 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 
 if ( ! function_exists( 'underscores_custom_logo' ) ) :
   function underscores_custom_logo() {
-    if ( ! empty( the_custom_logo() ) ) {
+    if ( has_custom_logo() ) {
 
       the_custom_logo();
 
